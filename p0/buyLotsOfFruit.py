@@ -22,6 +22,14 @@ FRUIT_PRICES = {
 }
 
 def buyLotsOfFruit(orderList):
+    total = 0
+    for n in orderList:
+        if n[0] not in FRUIT_PRICES:
+            return None
+        else:
+            total += n[1] * FRUIT_PRICES[n[0]]
+    return total
+
     """
     orderList: List of (fruit, weight) tuples
 

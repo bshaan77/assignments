@@ -19,9 +19,16 @@ def shopSmart(orderList, fruitShops):
     fruitShops: List of FruitShops
     """
 
-    # *** Your Code Here ***
+    total = {shop: 0 for shop in fruitShops}
+    
+    for shop in fruitShops:
+        for n in orderList:
+            if n[0] not in shop.fruitPrices:
+                return None
+            else:
+                total[shop] += n[1] * shop.fruitPrices[n[0]]
 
-    return None
+    return min(total, key=total.get)
 
 def main():
     dir1 = {
